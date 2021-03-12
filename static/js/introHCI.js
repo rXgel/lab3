@@ -22,13 +22,19 @@ function initializePage() {
 function projectClick(e) {
     console.log("Project clicked");
     e.preventDefault();
-    $(this).css("background-color", "#7fff00");
+/*
+ *     $(this).css("background-color", "#7fff00");
+ */
     var containingProject = $(this).closest(".project");
     var description = $(containingProject).find(".project-description");
     if (description.length == 0) {
        $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+       $(this).css("background-color", "#7fff00");
     } else {
        $(description).fadeToggle();
+       $(this).css("background-color", "#ffffff");
+       var change = $(containingProject).find("div");
+       change.remove();
        //description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
 }
 }
